@@ -6,12 +6,13 @@ const forecast = (latitude, longtitude, callback) => {
         const currentResponse = response.body.current
         const {
             temperature,
-            feelslike
+            feelslike,
+            humidity
         } = currentResponse
         if(error) {
             callback('Unable to connect to weather service!', undefined)
         } else {
-            callback(undefined, 'It is currenty ' + temperature + ' degrees out. It feels like ' + feelslike + ' degrees out')
+            callback(undefined, 'It is currenty ' + temperature + ' degrees out. It feels like ' + feelslike + ' degrees out. And the humidity is ' + humidity + 'percent')
         }
     });
 }
